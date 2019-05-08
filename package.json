@@ -23,5 +23,8 @@
   "homepage": "https://github.com/Dayun123/basic-weather-app#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "engines": {
+    "node": "11.13.0"
   }
 }
