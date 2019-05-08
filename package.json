@@ -1,0 +1,27 @@
+{
+  "name": "weather-app-complete",
+  "version": "1.0.0",
+  "description": "Basic Express/Node Weather App",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dayun123/basic-weather-app.git"
+  },
+  "keywords": [
+    "weather",
+    "node",
+    "express"
+  ],
+  "author": "Daniel Schroeder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dayun123/basic-weather-app/issues"
+  },
+  "homepage": "https://github.com/Dayun123/basic-weather-app#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
