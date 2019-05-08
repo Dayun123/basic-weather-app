@@ -1,3 +1,55 @@
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: arial;
+  color: #333;
+}
+
+/* Remove base styles */
+
+ul {
+  padding-left: 0;
+}
+
 nav li {
   display: inline-block;
+}
+
+h1 {
+  margin: 16px 0;
+}
+
+.page-title {
+  font-size: 3.5rem;
+}
+
+.page-description {
+  padding-top: 2rem;
+}
+
+/* Nav links */
+
+nav {
+  font-size: 1.25rem;
+}
+
+nav li {
+  padding-right: 16px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #555;
+}
+
+/* Search form */
+
+input {
+  padding: 4px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 4px;
+  color: #555;
 }
