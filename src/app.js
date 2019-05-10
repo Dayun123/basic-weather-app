@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+const geocoder = require('./geocoder');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -36,18 +38,26 @@ app.get('/help', (req, res) => {
   });
 });
 
+// JSON endpoint for the fetch call
 app.get('/weather', (req, res) => {
-  if (!req.query.address) {
+  // make sure there is a query string
+  if (!req.query.city) {
     return res.json({
       error: true,
       msg: 'You must search for a location!'
     });
   }
   // make a call to the geocoder and forecast API's and return the forecast to the client
-  res.json({
+  geocoder(req.query.city, (error, location) => {
+    if (error) {
+      return console.log('error');
+    }
+    res.json({
     error: false,
-    msg: `Here is the weather for ${req.query.address}. Partly cloudy with a high of 80.`
+    msg: `Here is the weather for ${req.query.city}. Partly cloudy with a high of 80. The lat is ${location.lat} and the lng is ${location.lng}`
+    });
   });
+  
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

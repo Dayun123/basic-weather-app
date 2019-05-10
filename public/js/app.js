@@ -15,8 +15,8 @@ form.addEventListener('submit', (e) => {
   // the location the user typed in the search input
   const location = search.value;
 
-  // pass the location along to the server and get back the forecast data or an error, should be a request to /weather?address={location}
-  fetch(`/weather?address=${location}`)
+  // pass the location along to the server and get back the forecast data or an error, should be a request to /weather?city={location}
+  fetch(`/weather?city=${location}`)
     .then(function(response) {
       return response.json();
     })

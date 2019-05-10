@@ -2,19 +2,25 @@
 
 const request = require('request');
 
-const requestOptions = {
-  uri: "https://api.geocod.io/v1.3/geocode",
-  qs: {
-    city: 'New%20Orleans',
-    api_key: '3ecdb9caa4a054c34e47c70345cc7054ceddc6c'
-  },
-  json: true
-}
+module.exports = (city, callback) => {
 
-request(requestOptions, (err, res, body) => {
-  if (err) {
-    console.log(err);
+  const requestOptions = {
+    // the api uri
+    uri: "https://api.geocod.io/v1.3/geocode",
+    // query string params
+    qs: {
+      city,
+      api_key: '3ecdb9caa4a054c34e47c70345cc7054ceddc6c'
+    },
+    // we know we will get JSON, so go ahead and parse the JSON response
+    json: true
   }
-  // gives us an object with {lat, lng}
-  console.log(body.results[0].location);
-});
+
+  request(requestOptions, (err, res, body) => {
+    if (err) {
+      callback(err);
+    }
+    // gives us an object with {lat, lng}
+    callback(undefined, body.results[0].location);
+  });
+};
