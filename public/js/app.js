@@ -16,11 +16,20 @@ form.addEventListener('submit', (e) => {
   const location = search.value;
 
   // pass the location along to the server and get back the forecast data or an error, should be a request to /weather?address={location}
-  const data = { error: true, msg: 'Error, (details....)'};
+  fetch(`/weather?address=${location}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // console.log(``);
+      // format a message based on the returned data and add this to the DOM
+      forecastMessage.appendChild(formatMessage(data));
+    });
+
+  // const data = { error: true, msg: 'Error, (details....)'};
   // const data = { error: false, msg: 'Here is your forecast for...' };
 
-  // format a message based on the returned data and add this to the DOM
-  forecastMessage.appendChild(formatMessage(data));
+  
 
 });
 

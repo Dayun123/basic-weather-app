@@ -36,4 +36,11 @@ app.get('/help', (req, res) => {
   });
 });
 
+app.get('/weather', (req, res) => {
+  res.json({
+    error: false,
+    msg: `Here is the weather for ${req.query.address}. Partly cloudy with a high of 80.`
+  });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
