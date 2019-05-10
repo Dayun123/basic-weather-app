@@ -37,6 +37,13 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
+  if (!req.query.address) {
+    return res.json({
+      error: true,
+      msg: 'You must search for a location!'
+    });
+  }
+  // make a call to the geocoder and forecast API's and return the forecast to the client
   res.json({
     error: false,
     msg: `Here is the weather for ${req.query.address}. Partly cloudy with a high of 80.`
